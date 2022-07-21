@@ -57,4 +57,6 @@ COPY R/requirements.txt requirements.txt
 # Copy cran mirror site details. Otherwise package installs fail
 COPY R/Rprofile.site /home/R/.Rprofile
 COPY R/Rprofile.site /etc/R/Rprofile.site
+
+RUN apt-get install --yes vim
 RUN sh install_packages.sh

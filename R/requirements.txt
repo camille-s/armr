@@ -15,4 +15,5 @@ rvest
 jsonlite
 xml2
 readxl
-
+tictoc
+furrr
