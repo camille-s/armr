@@ -58,5 +58,9 @@ COPY R/requirements.txt requirements.txt
 COPY R/Rprofile.site /home/R/.Rprofile
 COPY R/Rprofile.site /etc/R/Rprofile.site
 
-RUN apt-get install --yes vim
+RUN apt-get install --yes \
+  vim \
+  openssh-client \
+  openssh-server
+RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 RUN sh install_packages.sh
