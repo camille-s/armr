@@ -1,0 +1,32 @@
+version: "3"
+services:
+  r-runner:
+    image: armr:latest
+    hostname: boss
+    ports:
+      - "11317:11317"
+    networks:
+      - spark-net
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.labels.role==manager
+  r-worker:
+    image: armr:latest
+    ports:
+      - "11318-11320:11317"
+    networks:
+      - spark-net
+    deploy:
+      replicas: 3
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.labels.role==worker
+networks:
+  spark-net:
+    external: true
