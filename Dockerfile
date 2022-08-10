@@ -63,5 +63,5 @@ RUN apt-get install --yes \
   openssh-client \
   openssh-server
 RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
-RUN sh install_packages.sh
+RUN sh ./install_packages.sh
 
