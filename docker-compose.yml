@@ -5,6 +5,7 @@ services:
     hostname: boss
     ports:
       - "11317:11317"
+      - "2222:22"
     networks:
       - spark-net
     deploy:
@@ -18,6 +19,7 @@ services:
     image: armr:latest
     ports:
       - "11318-11320:11317"
+      - "2222:22"
     networks:
       - spark-net
     deploy:
