@@ -1,4 +1,4 @@
-FROM arm32v7/ubuntu:18.04
+FROM arm32v7/ubuntu:20.04
 ENV DEBIAN_FRONTEND=noninteractive
 ENV R_VERSION=4.2.1
 # RUN apt update && apt install --yes gnupg2 libcurl4-openssl-dev apt-utils libatlas3-base libopenblas-base libssl-dev
@@ -11,6 +11,7 @@ ENV R_VERSION=4.2.1
 
 # Make R from source
 RUN apt-get update && apt-get install --yes \
+  g++ \
   gnupg2 \
   make \
   apt-utils \
@@ -34,6 +35,8 @@ RUN apt-get update && apt-get install --yes \
   libzstd-dev \
   liblzma-dev \
   libpcre2-dev \
+  zlib1g \
+  zlib1g-dev \
   jq
 # Devtools dependencies
 # RUN apt-get install --yes libgit2-dev libxml2-dev
