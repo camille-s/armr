@@ -70,4 +70,5 @@ RUN sh ./install_packages.sh ./requirements.txt
 
 EXPOSE 11317
 
-ENTRYPOINT R --no-save
+# ENTRYPOINT R --no-save
+CMD ["R"]
