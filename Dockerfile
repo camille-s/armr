@@ -70,4 +70,4 @@ RUN sh ./install_packages.sh ./requirements.txt
 
 EXPOSE 11317
 
-ENTRYPOINT R
+ENTRYPOINT R --no-save
