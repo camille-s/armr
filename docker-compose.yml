@@ -5,7 +5,6 @@ services:
     hostname: boss
     ports:
       - "11317:11317"
-      - "2222:22"
     networks:
       - spark-net
     deploy:
@@ -15,11 +14,13 @@ services:
       placement:
         constraints:
           - node.labels.role==manager
+    volumes:
+      - gfs2:/data
+      - /var/run/docker.sock:/var/run/docker.sock
   r-worker:
     image: armr:latest
     ports:
       - "11318-11320:11317"
-      - "2222:22"
     networks:
       - spark-net
     deploy:
@@ -29,6 +30,13 @@ services:
       placement:
         constraints:
           - node.labels.role==worker
+    volumes:
+      - gfs2:/data
+      - /var/run/docker.sock:/var/run/docker.sock
 networks:
   spark-net:
     external: true
+
+volumes:
+  gfs2:
+    driver: glust

@@ -68,3 +68,6 @@ RUN apt-get install --yes \
 RUN echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 RUN sh ./install_packages.sh ./requirements.txt
 
+EXPOSE 11317
+
+ENTRYPOINT R
